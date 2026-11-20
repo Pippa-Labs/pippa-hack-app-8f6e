@@ -1,0 +1,358 @@
+{
+  "title": "ONS private rents by London borough and property type",
+  "units": "GBP per calendar month",
+  "retrieved": "2026-11-20",
+  "period_label": "October 2026",
+  "property_types": [
+    "room",
+    "studio",
+    "1bed",
+    "2bed",
+    "3bed",
+    "4plus"
+  ],
+  "type_basis": {
+    "room": "ONS Private Rental Market Statistics (PRMS, VOA data) median for 'Room', tenancies active 1 Oct 2022-30 Sep 2023, uplifted to October 2026 by each borough's PIPR all-properties index change (Oct 2026 / mean Oct 2022-Sep 2023)",
+    "studio": "ONS PRMS median for 'Studio', tenancies active 1 Oct 2022-30 Sep 2023, uplifted to October 2026 by each borough's PIPR all-properties index change (Oct 2026 / mean Oct 2022-Sep 2023)",
+    "1bed": "ONS Price Index of Private Rents (PIPR) average rental price, one bedroom, October 2026 (released 18 Nov 2026; model-based geometric-mean price level)",
+    "2bed": "ONS PIPR average rental price, two bedrooms, October 2026 (released 18 Nov 2026)",
+    "3bed": "ONS PIPR average rental price, three bedrooms, October 2026 (released 18 Nov 2026)",
+    "4plus": "ONS PIPR average rental price, four or more bedrooms, October 2026 (released 18 Nov 2026)",
+    "all": "ONS PIPR average rental price, all property types, October 2026 (released 18 Nov 2026)"
+  },
+  "sources": [
+    {
+      "name": "ONS Price Index of Private Rents, UK: monthly price statistics (18 November 2026 edition), Table 1",
+      "url": "https://www.ons.gov.uk/file?uri=/economy/inflationandpriceindices/datasets/priceindexofprivaterentsukmonthlypricestatistics/18november2026/priceindexofprivaterentsukmonthlypricestatistics10.xlsx",
+      "release_date": "2026-11-18",
+      "period": "October 2026 (rent levels); Oct 2022-Oct 2026 indices used for uplift",
+      "statistic": "mean"
+    },
+    {
+      "name": "ONS Private rental market summary statistics in England, October 2022 to September 2023 (final edition), Tables 2.1 (Room) and 2.2 (Studio)",
+      "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/housing/datasets/privaterentalmarketsummarystatisticsinengland/october2022toseptember2023/privaterentalmarketstatistics231220.xls",
+      "release_date": "2023-12-20",
+      "period": "1 October 2022 to 30 September 2023",
+      "statistic": "median"
+    }
+  ],
+  "boroughs": {
+    "Barking and Dagenham": {
+      "room": 777,
+      "studio": 971,
+      "1bed": 1380,
+      "2bed": 1727,
+      "3bed": 1907,
+      "4plus": 2528,
+      "all": 1704
+    },
+    "Barnet": {
+      "room": 797,
+      "studio": 1227,
+      "1bed": 1506,
+      "2bed": 1868,
+      "3bed": 2270,
+      "4plus": 3212,
+      "all": 1959
+    },
+    "Bexley": {
+      "room": null,
+      "studio": 1194,
+      "1bed": 1235,
+      "2bed": 1535,
+      "3bed": 1879,
+      "4plus": 2441,
+      "all": 1546
+    },
+    "Brent": {
+      "room": 1064,
+      "studio": 1149,
+      "1bed": 1579,
+      "2bed": 1940,
+      "3bed": 2283,
+      "4plus": 3067,
+      "all": 2022
+    },
+    "Bromley": {
+      "room": 818,
+      "studio": 1090,
+      "1bed": 1328,
+      "2bed": 1662,
+      "3bed": 2019,
+      "4plus": 2969,
+      "all": 1706
+    },
+    "Camden": {
+      "room": 1113,
+      "studio": 1293,
+      "1bed": 2069,
+      "2bed": 2644,
+      "3bed": 3083,
+      "4plus": 4003,
+      "all": 2844
+    },
+    "City of London": {
+      "room": null,
+      "studio": null,
+      "1bed": null,
+      "2bed": null,
+      "3bed": null,
+      "4plus": null,
+      "all": null
+    },
+    "Croydon": {
+      "room": 776,
+      "studio": 1257,
+      "1bed": 1273,
+      "2bed": 1585,
+      "3bed": 1876,
+      "4plus": 2691,
+      "all": 1594
+    },
+    "Ealing": {
+      "room": 1039,
+      "studio": 1421,
+      "1bed": 1644,
+      "2bed": 2053,
+      "3bed": 2433,
+      "4plus": 3326,
+      "all": 2131
+    },
+    "Enfield": {
+      "room": 904,
+      "studio": 1226,
+      "1bed": 1429,
+      "2bed": 1774,
+      "3bed": 2113,
+      "4plus": 2826,
+      "all": 1837
+    },
+    "Greenwich": {
+      "room": 954,
+      "studio": 1286,
+      "1bed": 1568,
+      "2bed": 1941,
+      "3bed": 2255,
+      "4plus": 3017,
+      "all": 2003
+    },
+    "Hackney": {
+      "room": 910,
+      "studio": 1690,
+      "1bed": 2015,
+      "2bed": 2510,
+      "3bed": 2872,
+      "4plus": 3706,
+      "all": 2680
+    },
+    "Hammersmith and Fulham": {
+      "room": null,
+      "studio": 1399,
+      "1bed": 2037,
+      "2bed": 2673,
+      "3bed": 3052,
+      "4plus": 4265,
+      "all": 2880
+    },
+    "Haringey": {
+      "room": 1080,
+      "studio": 1231,
+      "1bed": 1651,
+      "2bed": 2052,
+      "3bed": 2378,
+      "4plus": 3217,
+      "all": 2238
+    },
+    "Harrow": {
+      "room": 865,
+      "studio": 1105,
+      "1bed": 1395,
+      "2bed": 1720,
+      "3bed": 2075,
+      "4plus": 2802,
+      "all": 1784
+    },
+    "Havering": {
+      "room": 886,
+      "studio": 1012,
+      "1bed": 1221,
+      "2bed": 1548,
+      "3bed": 1858,
+      "4plus": 2508,
+      "all": 1571
+    },
+    "Hillingdon": {
+      "room": 851,
+      "studio": 1138,
+      "1bed": 1270,
+      "2bed": 1611,
+      "3bed": 1948,
+      "4plus": 2678,
+      "all": 1594
+    },
+    "Hounslow": {
+      "room": 888,
+      "studio": 1315,
+      "1bed": 1593,
+      "2bed": 1963,
+      "3bed": 2265,
+      "4plus": 3106,
+      "all": 1970
+    },
+    "Islington": {
+      "room": 1047,
+      "studio": 1549,
+      "1bed": 2196,
+      "2bed": 2722,
+      "3bed": 3034,
+      "4plus": 4270,
+      "all": 2894
+    },
+    "Kensington and Chelsea": {
+      "room": 1131,
+      "studio": 1885,
+      "1bed": 2691,
+      "2bed": 3500,
+      "3bed": 4163,
+      "4plus": 5772,
+      "all": 3765
+    },
+    "Kingston upon Thames": {
+      "room": 781,
+      "studio": 1199,
+      "1bed": 1394,
+      "2bed": 1776,
+      "3bed": 2183,
+      "4plus": 2873,
+      "all": 1832
+    },
+    "Lambeth": {
+      "room": null,
+      "studio": 1226,
+      "1bed": 1905,
+      "2bed": 2372,
+      "3bed": 2719,
+      "4plus": 3766,
+      "all": 2559
+    },
+    "Lewisham": {
+      "room": 921,
+      "studio": 1228,
+      "1bed": 1462,
+      "2bed": 1798,
+      "3bed": 2070,
+      "4plus": 2728,
+      "all": 1838
+    },
+    "Merton": {
+      "room": 927,
+      "studio": 1298,
+      "1bed": 1653,
+      "2bed": 2043,
+      "3bed": 2433,
+      "4plus": 3301,
+      "all": 2192
+    },
+    "Newham": {
+      "room": 968,
+      "studio": 1365,
+      "1bed": 1639,
+      "2bed": 2006,
+      "3bed": 2229,
+      "4plus": 2692,
+      "all": 1940
+    },
+    "Redbridge": {
+      "room": 943,
+      "studio": 1135,
+      "1bed": 1381,
+      "2bed": 1699,
+      "3bed": 2006,
+      "4plus": 2742,
+      "all": 1744
+    },
+    "Richmond upon Thames": {
+      "room": null,
+      "studio": 1346,
+      "1bed": 1755,
+      "2bed": 2254,
+      "3bed": 2725,
+      "4plus": 3969,
+      "all": 2367
+    },
+    "Southwark": {
+      "room": 1065,
+      "studio": 1441,
+      "1bed": 1923,
+      "2bed": 2409,
+      "3bed": 2805,
+      "4plus": 3705,
+      "all": 2538
+    },
+    "Sutton": {
+      "room": null,
+      "studio": 1008,
+      "1bed": 1256,
+      "2bed": 1579,
+      "3bed": 1931,
+      "4plus": 2533,
+      "all": 1580
+    },
+    "Tower Hamlets": {
+      "room": 1069,
+      "studio": 1928,
+      "1bed": 2005,
+      "2bed": 2436,
+      "3bed": 2772,
+      "4plus": 3404,
+      "all": 2472
+    },
+    "Waltham Forest": {
+      "room": 777,
+      "studio": 1213,
+      "1bed": 1421,
+      "2bed": 1750,
+      "3bed": 2058,
+      "4plus": 2607,
+      "all": 1791
+    },
+    "Wandsworth": {
+      "room": 965,
+      "studio": 1389,
+      "1bed": 1950,
+      "2bed": 2479,
+      "3bed": 2831,
+      "4plus": 3845,
+      "all": 2651
+    },
+    "Westminster": {
+      "room": 1139,
+      "studio": 1736,
+      "1bed": 2563,
+      "2bed": 3330,
+      "3bed": 3926,
+      "4plus": 5466,
+      "all": 3217
+    }
+  },
+  "london": {
+    "room": 942,
+    "studio": 1382,
+    "1bed": 1774,
+    "2bed": 2251,
+    "3bed": 2666,
+    "4plus": 3672,
+    "all": 2350
+  },
+  "notes": [
+    "PIPR figures (1bed-4plus, all) are ONS model-based average rents (geometric mean of hedonic-model prices for a fixed January 2023 basket, uprated by the index). They cover the stock of all current private tenancies (new and existing lets), not just new lets or advertised asking rents, so they will usually sit below current asking rents on listing sites.",
+    "Room and studio figures are medians from ONS/VOA PRMS for tenancies active Oct 2022-Sep 2023, uplifted to October 2026 by the borough's PIPR all-properties index: factor = PIPR index Oct 2026 / mean PIPR index Oct 2022-Sep 2023. London factor 1.2562; borough factors range 1.2015-1.3470 (per-borough factors in SOURCES.md). PIPR excludes rooms in HMOs and has no studio category, so the all-properties index is a proxy for room/studio rent growth.",
+    "Room/studio columns are medians while 1bed-4plus/all are PIPR averages, and they come from different data processing; treat cross-column comparisons (e.g. studio vs 1bed) with care.",
+    "City of London: ONS does not publish PIPR estimates for the City of London (low collection volumes), so all its cells are null. PRMS did publish City studio/1-bed figures for 2022-23 (see SOURCES.md) but there is no City index to uplift them; the app could fall back to Westminster or the London row.",
+    "Room nulls: Bexley, City of London, Hammersmith and Fulham, Lambeth, Richmond upon Thames, Sutton. PRMS had zero room records in City of London, Hammersmith and Fulham and Richmond upon Thames, and suppressed the room median (fewer than 5 records) in Bexley, Lambeth and Sutton.",
+    "Low-reliability room medians (PRMS count rounded to 10 records, i.e. roughly 5-14 tenancies): Barking and Dagenham, Bromley, Camden, Ealing, Hackney, Havering, Islington. Studio medians based on ~10 records: Barking and Dagenham, Bexley, Havering, Kingston upon Thames, Merton.",
+    "ONS advises that local-authority PIPR price levels can be volatile month to month because of low collection volumes; London-wide figures are more robust.",
+    "On 18 November 2026 ONS launched a new 'Private rent price median and quartiles, England and Wales' dataset (latest month September 2026, includes studios, no rooms, no London region row, City of London not published). It was not used for the main table; see SOURCES.md for the reasoning and a comparison.",
+    "Values rounded to whole pounds. PIPR is not seasonally adjusted."
+  ]
+}

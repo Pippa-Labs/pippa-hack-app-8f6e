@@ -1,0 +1,1178 @@
+{
+  "_about": "Hand-built lookup for Rent Check: canonical ONS borough names, short names/aliases, popular neighbourhoods mapped to their (main) borough, land/river neighbours, and towns just outside London mapped to the nearest boroughs. Neighbourhoods that straddle a boundary are mapped to the borough holding most of them.",
+  "boroughs": {
+    "Barking and Dagenham": {
+      "aliases": [
+        "barking and dagenham",
+        "barking & dagenham",
+        "barking",
+        "dagenham",
+        "b&d",
+        "lbbd"
+      ],
+      "areas": [
+        "becontree",
+        "chadwell heath",
+        "dagenham east",
+        "dagenham heathway",
+        "barking riverside"
+      ],
+      "neighbours": [
+        "Newham",
+        "Redbridge",
+        "Havering",
+        "Bexley",
+        "Greenwich"
+      ]
+    },
+    "Barnet": {
+      "aliases": [
+        "barnet"
+      ],
+      "areas": [
+        "finchley",
+        "east finchley",
+        "north finchley",
+        "golders green",
+        "hendon",
+        "edgware",
+        "high barnet",
+        "new barnet",
+        "mill hill",
+        "colindale",
+        "cricklewood",
+        "whetstone",
+        "totteridge",
+        "burnt oak",
+        "childs hill",
+        "brent cross",
+        "friern barnet",
+        "west hendon"
+      ],
+      "neighbours": [
+        "Enfield",
+        "Haringey",
+        "Camden",
+        "Brent",
+        "Harrow"
+      ]
+    },
+    "Bexley": {
+      "aliases": [
+        "bexley"
+      ],
+      "areas": [
+        "bexleyheath",
+        "sidcup",
+        "erith",
+        "welling",
+        "crayford",
+        "belvedere",
+        "thamesmead",
+        "abbey wood",
+        "blackfen",
+        "foots cray"
+      ],
+      "neighbours": [
+        "Greenwich",
+        "Bromley",
+        "Barking and Dagenham",
+        "Havering"
+      ]
+    },
+    "Brent": {
+      "aliases": [
+        "brent"
+      ],
+      "areas": [
+        "wembley",
+        "wembley park",
+        "kilburn",
+        "willesden",
+        "willesden green",
+        "harlesden",
+        "kensal green",
+        "kensal rise",
+        "neasden",
+        "queens park",
+        "dollis hill",
+        "kingsbury",
+        "stonebridge",
+        "alperton",
+        "sudbury",
+        "brondesbury",
+        "park royal"
+      ],
+      "neighbours": [
+        "Barnet",
+        "Camden",
+        "Westminster",
+        "Kensington and Chelsea",
+        "Hammersmith and Fulham",
+        "Ealing",
+        "Harrow"
+      ]
+    },
+    "Bromley": {
+      "aliases": [
+        "bromley"
+      ],
+      "areas": [
+        "beckenham",
+        "orpington",
+        "penge",
+        "chislehurst",
+        "west wickham",
+        "biggin hill",
+        "anerley",
+        "petts wood",
+        "shortlands",
+        "crystal palace",
+        "elmers end",
+        "bickley",
+        "st mary cray",
+        "hayes bromley"
+      ],
+      "neighbours": [
+        "Bexley",
+        "Greenwich",
+        "Lewisham",
+        "Southwark",
+        "Lambeth",
+        "Croydon"
+      ]
+    },
+    "Camden": {
+      "aliases": [
+        "camden"
+      ],
+      "areas": [
+        "camden town",
+        "kentish town",
+        "hampstead",
+        "belsize park",
+        "kings cross",
+        "bloomsbury",
+        "holborn",
+        "primrose hill",
+        "west hampstead",
+        "swiss cottage",
+        "gospel oak",
+        "euston",
+        "chalk farm",
+        "fitzrovia",
+        "south hampstead",
+        "tufnell park",
+        "highgate",
+        "fortune green",
+        "somers town",
+        "st pancras"
+      ],
+      "neighbours": [
+        "Barnet",
+        "Haringey",
+        "Islington",
+        "City of London",
+        "Westminster",
+        "Brent"
+      ]
+    },
+    "City of London": {
+      "aliases": [
+        "city of london",
+        "the city",
+        "square mile",
+        "city"
+      ],
+      "areas": [
+        "barbican",
+        "bank",
+        "moorgate",
+        "st pauls",
+        "aldgate",
+        "liverpool street",
+        "fenchurch street",
+        "blackfriars",
+        "cheapside",
+        "temple"
+      ],
+      "neighbours": [
+        "Westminster",
+        "Camden",
+        "Islington",
+        "Hackney",
+        "Tower Hamlets",
+        "Southwark",
+        "Lambeth"
+      ]
+    },
+    "Croydon": {
+      "aliases": [
+        "croydon"
+      ],
+      "areas": [
+        "thornton heath",
+        "purley",
+        "norbury",
+        "south norwood",
+        "addiscombe",
+        "selhurst",
+        "coulsdon",
+        "upper norwood",
+        "new addington",
+        "east croydon",
+        "west croydon",
+        "south croydon",
+        "shirley",
+        "sanderstead",
+        "kenley",
+        "broad green"
+      ],
+      "neighbours": [
+        "Bromley",
+        "Lambeth",
+        "Merton",
+        "Sutton",
+        "Southwark"
+      ]
+    },
+    "Ealing": {
+      "aliases": [
+        "ealing"
+      ],
+      "areas": [
+        "acton",
+        "east acton",
+        "north acton",
+        "south acton",
+        "southall",
+        "hanwell",
+        "greenford",
+        "northolt",
+        "ealing broadway",
+        "west ealing",
+        "south ealing",
+        "perivale",
+        "ealing common"
+      ],
+      "neighbours": [
+        "Brent",
+        "Harrow",
+        "Hillingdon",
+        "Hounslow",
+        "Hammersmith and Fulham"
+      ]
+    },
+    "Enfield": {
+      "aliases": [
+        "enfield"
+      ],
+      "areas": [
+        "edmonton",
+        "southgate",
+        "palmers green",
+        "enfield town",
+        "winchmore hill",
+        "ponders end",
+        "cockfosters",
+        "bush hill park",
+        "enfield lock",
+        "oakwood",
+        "upper edmonton"
+      ],
+      "neighbours": [
+        "Barnet",
+        "Haringey",
+        "Waltham Forest"
+      ]
+    },
+    "Greenwich": {
+      "aliases": [
+        "greenwich",
+        "royal greenwich"
+      ],
+      "areas": [
+        "woolwich",
+        "eltham",
+        "charlton",
+        "north greenwich",
+        "greenwich peninsula",
+        "plumstead",
+        "kidbrooke",
+        "west greenwich",
+        "maze hill",
+        "shooters hill",
+        "new eltham"
+      ],
+      "neighbours": [
+        "Lewisham",
+        "Bromley",
+        "Bexley",
+        "Tower Hamlets",
+        "Newham"
+      ]
+    },
+    "Hackney": {
+      "aliases": [
+        "hackney"
+      ],
+      "areas": [
+        "shoreditch",
+        "dalston",
+        "hackney wick",
+        "homerton",
+        "clapton",
+        "lower clapton",
+        "upper clapton",
+        "stoke newington",
+        "stokey",
+        "hoxton",
+        "london fields",
+        "haggerston",
+        "de beauvoir",
+        "stamford hill",
+        "hackney central",
+        "hackney downs",
+        "victoria park"
+      ],
+      "neighbours": [
+        "Haringey",
+        "Waltham Forest",
+        "Newham",
+        "Tower Hamlets",
+        "City of London",
+        "Islington"
+      ]
+    },
+    "Hammersmith and Fulham": {
+      "aliases": [
+        "hammersmith and fulham",
+        "hammersmith & fulham",
+        "hammersmith",
+        "fulham",
+        "h&f",
+        "lbhf"
+      ],
+      "areas": [
+        "shepherds bush",
+        "white city",
+        "parsons green",
+        "barons court",
+        "west kensington",
+        "brook green",
+        "ravenscourt park",
+        "hurlingham",
+        "sands end",
+        "olympia",
+        "fulham broadway",
+        "wormholt",
+        "college park",
+        "stamford brook"
+      ],
+      "neighbours": [
+        "Brent",
+        "Kensington and Chelsea",
+        "Ealing",
+        "Hounslow",
+        "Richmond upon Thames",
+        "Wandsworth"
+      ]
+    },
+    "Haringey": {
+      "aliases": [
+        "haringey",
+        "harringay"
+      ],
+      "areas": [
+        "tottenham",
+        "tottenham hale",
+        "wood green",
+        "crouch end",
+        "muswell hill",
+        "hornsey",
+        "seven sisters",
+        "turnpike lane",
+        "alexandra palace",
+        "ally pally",
+        "bounds green",
+        "noel park",
+        "west green",
+        "bruce grove",
+        "stroud green"
+      ],
+      "neighbours": [
+        "Enfield",
+        "Waltham Forest",
+        "Hackney",
+        "Islington",
+        "Camden",
+        "Barnet"
+      ]
+    },
+    "Harrow": {
+      "aliases": [
+        "harrow"
+      ],
+      "areas": [
+        "harrow on the hill",
+        "pinner",
+        "stanmore",
+        "wealdstone",
+        "rayners lane",
+        "south harrow",
+        "north harrow",
+        "kenton",
+        "hatch end",
+        "headstone",
+        "harrow weald"
+      ],
+      "neighbours": [
+        "Barnet",
+        "Brent",
+        "Ealing",
+        "Hillingdon"
+      ]
+    },
+    "Havering": {
+      "aliases": [
+        "havering"
+      ],
+      "areas": [
+        "romford",
+        "hornchurch",
+        "upminster",
+        "rainham",
+        "harold wood",
+        "harold hill",
+        "gidea park",
+        "elm park",
+        "collier row"
+      ],
+      "neighbours": [
+        "Barking and Dagenham",
+        "Redbridge",
+        "Bexley"
+      ]
+    },
+    "Hillingdon": {
+      "aliases": [
+        "hillingdon"
+      ],
+      "areas": [
+        "uxbridge",
+        "hayes",
+        "ruislip",
+        "west drayton",
+        "northwood",
+        "heathrow",
+        "ickenham",
+        "yiewsley",
+        "eastcote",
+        "harefield",
+        "hayes town"
+      ],
+      "neighbours": [
+        "Harrow",
+        "Ealing",
+        "Hounslow"
+      ]
+    },
+    "Hounslow": {
+      "aliases": [
+        "hounslow"
+      ],
+      "areas": [
+        "chiswick",
+        "brentford",
+        "isleworth",
+        "feltham",
+        "hanworth",
+        "osterley",
+        "cranford",
+        "bedfont",
+        "heston",
+        "gunnersbury",
+        "turnham green"
+      ],
+      "neighbours": [
+        "Hillingdon",
+        "Ealing",
+        "Hammersmith and Fulham",
+        "Richmond upon Thames"
+      ]
+    },
+    "Islington": {
+      "aliases": [
+        "islington"
+      ],
+      "areas": [
+        "angel",
+        "highbury",
+        "holloway",
+        "archway",
+        "finsbury park",
+        "barnsbury",
+        "canonbury",
+        "clerkenwell",
+        "upper street",
+        "farringdon",
+        "old street",
+        "pentonville",
+        "caledonian road",
+        "highbury and islington",
+        "finsbury",
+        "nags head"
+      ],
+      "neighbours": [
+        "Haringey",
+        "Hackney",
+        "City of London",
+        "Camden"
+      ]
+    },
+    "Kensington and Chelsea": {
+      "aliases": [
+        "kensington and chelsea",
+        "kensington & chelsea",
+        "kensington",
+        "chelsea",
+        "ken",
+        "k&c",
+        "k and c",
+        "rbkc"
+      ],
+      "areas": [
+        "notting hill",
+        "earls court",
+        "south kensington",
+        "south ken",
+        "holland park",
+        "ladbroke grove",
+        "north kensington",
+        "knightsbridge",
+        "sloane square",
+        "worlds end",
+        "west brompton",
+        "brompton",
+        "kensington high street",
+        "gloucester road",
+        "portobello"
+      ],
+      "neighbours": [
+        "Brent",
+        "Westminster",
+        "Hammersmith and Fulham",
+        "Wandsworth"
+      ]
+    },
+    "Kingston upon Thames": {
+      "aliases": [
+        "kingston upon thames",
+        "kingston"
+      ],
+      "areas": [
+        "surbiton",
+        "new malden",
+        "tolworth",
+        "chessington",
+        "norbiton",
+        "berrylands",
+        "kingston vale",
+        "coombe"
+      ],
+      "neighbours": [
+        "Richmond upon Thames",
+        "Wandsworth",
+        "Merton",
+        "Sutton"
+      ]
+    },
+    "Lambeth": {
+      "aliases": [
+        "lambeth"
+      ],
+      "areas": [
+        "brixton",
+        "clapham",
+        "clapham common",
+        "clapham north",
+        "stockwell",
+        "vauxhall",
+        "kennington",
+        "streatham",
+        "waterloo",
+        "herne hill",
+        "west norwood",
+        "oval",
+        "tulse hill",
+        "south bank",
+        "gipsy hill",
+        "loughborough junction",
+        "streatham hill"
+      ],
+      "neighbours": [
+        "Wandsworth",
+        "Southwark",
+        "Croydon",
+        "Merton",
+        "Westminster",
+        "City of London",
+        "Bromley"
+      ]
+    },
+    "Lewisham": {
+      "aliases": [
+        "lewisham"
+      ],
+      "areas": [
+        "deptford",
+        "new cross",
+        "brockley",
+        "catford",
+        "forest hill",
+        "sydenham",
+        "blackheath",
+        "lee",
+        "hither green",
+        "ladywell",
+        "honor oak",
+        "grove park",
+        "bellingham",
+        "downham"
+      ],
+      "neighbours": [
+        "Southwark",
+        "Greenwich",
+        "Bromley",
+        "Tower Hamlets"
+      ]
+    },
+    "Merton": {
+      "aliases": [
+        "merton"
+      ],
+      "areas": [
+        "wimbledon",
+        "south wimbledon",
+        "wimbledon park",
+        "mitcham",
+        "morden",
+        "colliers wood",
+        "raynes park",
+        "motspur park"
+      ],
+      "neighbours": [
+        "Wandsworth",
+        "Lambeth",
+        "Croydon",
+        "Sutton",
+        "Kingston upon Thames"
+      ]
+    },
+    "Newham": {
+      "aliases": [
+        "newham"
+      ],
+      "areas": [
+        "stratford",
+        "east ham",
+        "west ham",
+        "forest gate",
+        "canning town",
+        "plaistow",
+        "royal docks",
+        "royal victoria",
+        "custom house",
+        "beckton",
+        "manor park",
+        "upton park",
+        "silvertown",
+        "maryland",
+        "east village"
+      ],
+      "neighbours": [
+        "Tower Hamlets",
+        "Hackney",
+        "Waltham Forest",
+        "Redbridge",
+        "Barking and Dagenham",
+        "Greenwich"
+      ]
+    },
+    "Redbridge": {
+      "aliases": [
+        "redbridge"
+      ],
+      "areas": [
+        "ilford",
+        "gants hill",
+        "woodford",
+        "woodford green",
+        "south woodford",
+        "wanstead",
+        "barkingside",
+        "seven kings",
+        "goodmayes",
+        "hainault",
+        "clayhall"
+      ],
+      "neighbours": [
+        "Waltham Forest",
+        "Newham",
+        "Barking and Dagenham",
+        "Havering"
+      ]
+    },
+    "Richmond upon Thames": {
+      "aliases": [
+        "richmond upon thames",
+        "richmond"
+      ],
+      "areas": [
+        "twickenham",
+        "teddington",
+        "kew",
+        "barnes",
+        "mortlake",
+        "east sheen",
+        "sheen",
+        "hampton",
+        "hampton hill",
+        "whitton",
+        "ham",
+        "st margarets"
+      ],
+      "neighbours": [
+        "Hounslow",
+        "Kingston upon Thames",
+        "Wandsworth",
+        "Hammersmith and Fulham"
+      ]
+    },
+    "Southwark": {
+      "aliases": [
+        "southwark"
+      ],
+      "areas": [
+        "peckham",
+        "camberwell",
+        "bermondsey",
+        "elephant and castle",
+        "elephant & castle",
+        "elephant",
+        "dulwich",
+        "east dulwich",
+        "west dulwich",
+        "rotherhithe",
+        "borough",
+        "london bridge",
+        "nunhead",
+        "walworth",
+        "canada water",
+        "surrey quays",
+        "denmark hill",
+        "peckham rye"
+      ],
+      "neighbours": [
+        "Lambeth",
+        "Lewisham",
+        "Bromley",
+        "City of London",
+        "Tower Hamlets",
+        "Croydon"
+      ]
+    },
+    "Sutton": {
+      "aliases": [
+        "sutton"
+      ],
+      "areas": [
+        "cheam",
+        "carshalton",
+        "wallington",
+        "belmont",
+        "worcester park",
+        "hackbridge",
+        "rosehill",
+        "north cheam"
+      ],
+      "neighbours": [
+        "Merton",
+        "Croydon",
+        "Kingston upon Thames"
+      ]
+    },
+    "Tower Hamlets": {
+      "aliases": [
+        "tower hamlets"
+      ],
+      "areas": [
+        "bethnal green",
+        "whitechapel",
+        "canary wharf",
+        "isle of dogs",
+        "mile end",
+        "bow",
+        "limehouse",
+        "wapping",
+        "poplar",
+        "stepney",
+        "spitalfields",
+        "shadwell",
+        "bromley by bow",
+        "bromley-by-bow",
+        "cubitt town",
+        "blackwall",
+        "brick lane",
+        "stepney green",
+        "old ford"
+      ],
+      "neighbours": [
+        "City of London",
+        "Hackney",
+        "Newham",
+        "Southwark",
+        "Greenwich",
+        "Lewisham"
+      ]
+    },
+    "Waltham Forest": {
+      "aliases": [
+        "waltham forest"
+      ],
+      "areas": [
+        "walthamstow",
+        "leyton",
+        "leytonstone",
+        "chingford",
+        "higham hill",
+        "highams park",
+        "blackhorse road",
+        "wood street"
+      ],
+      "neighbours": [
+        "Enfield",
+        "Haringey",
+        "Hackney",
+        "Newham",
+        "Redbridge"
+      ]
+    },
+    "Wandsworth": {
+      "aliases": [
+        "wandsworth"
+      ],
+      "areas": [
+        "battersea",
+        "clapham junction",
+        "putney",
+        "tooting",
+        "tooting bec",
+        "balham",
+        "earlsfield",
+        "southfields",
+        "roehampton",
+        "nine elms",
+        "wandsworth town",
+        "wandsworth common",
+        "clapham south"
+      ],
+      "neighbours": [
+        "Lambeth",
+        "Merton",
+        "Kingston upon Thames",
+        "Richmond upon Thames",
+        "Hammersmith and Fulham",
+        "Kensington and Chelsea",
+        "Westminster"
+      ]
+    },
+    "Westminster": {
+      "aliases": [
+        "westminster",
+        "city of westminster"
+      ],
+      "areas": [
+        "soho",
+        "mayfair",
+        "marylebone",
+        "paddington",
+        "pimlico",
+        "victoria",
+        "bayswater",
+        "maida vale",
+        "st johns wood",
+        "covent garden",
+        "belgravia",
+        "westbourne park",
+        "queensway",
+        "edgware road",
+        "little venice",
+        "lisson grove",
+        "west end",
+        "baker street",
+        "marble arch",
+        "oxford street",
+        "charing cross"
+      ],
+      "neighbours": [
+        "Camden",
+        "City of London",
+        "Kensington and Chelsea",
+        "Brent",
+        "Lambeth",
+        "Wandsworth"
+      ]
+    }
+  },
+  "outside_london": {
+    "watford": [
+      "Harrow",
+      "Hillingdon",
+      "Barnet"
+    ],
+    "slough": [
+      "Hillingdon",
+      "Hounslow"
+    ],
+    "dartford": [
+      "Bexley",
+      "Bromley"
+    ],
+    "epsom": [
+      "Sutton",
+      "Kingston upon Thames"
+    ],
+    "st albans": [
+      "Barnet",
+      "Enfield",
+      "Harrow"
+    ],
+    "brentwood": [
+      "Havering",
+      "Redbridge"
+    ],
+    "staines": [
+      "Hounslow",
+      "Richmond upon Thames",
+      "Hillingdon"
+    ],
+    "borehamwood": [
+      "Barnet",
+      "Harrow"
+    ],
+    "loughton": [
+      "Waltham Forest",
+      "Redbridge",
+      "Enfield"
+    ],
+    "cheshunt": [
+      "Enfield",
+      "Waltham Forest"
+    ],
+    "bushey": [
+      "Harrow",
+      "Barnet"
+    ],
+    "potters bar": [
+      "Barnet",
+      "Enfield"
+    ],
+    "epping": [
+      "Waltham Forest",
+      "Redbridge",
+      "Enfield"
+    ],
+    "grays": [
+      "Havering",
+      "Barking and Dagenham"
+    ],
+    "thurrock": [
+      "Havering",
+      "Barking and Dagenham"
+    ],
+    "sevenoaks": [
+      "Bromley",
+      "Bexley"
+    ],
+    "redhill": [
+      "Croydon",
+      "Sutton"
+    ],
+    "reigate": [
+      "Croydon",
+      "Sutton"
+    ],
+    "caterham": [
+      "Croydon",
+      "Bromley"
+    ],
+    "esher": [
+      "Kingston upon Thames",
+      "Richmond upon Thames"
+    ],
+    "weybridge": [
+      "Kingston upon Thames",
+      "Richmond upon Thames",
+      "Hounslow"
+    ],
+    "swanley": [
+      "Bromley",
+      "Bexley"
+    ],
+    "surrey": [
+      "Kingston upon Thames",
+      "Sutton",
+      "Croydon",
+      "Richmond upon Thames"
+    ],
+    "kent": [
+      "Bromley",
+      "Bexley",
+      "Greenwich"
+    ],
+    "essex": [
+      "Havering",
+      "Redbridge",
+      "Waltham Forest"
+    ],
+    "hertfordshire": [
+      "Barnet",
+      "Enfield",
+      "Harrow"
+    ],
+    "herts": [
+      "Barnet",
+      "Enfield",
+      "Harrow"
+    ]
+  },
+  "regions": {
+    "central london": [
+      "Westminster",
+      "Camden",
+      "City of London",
+      "Islington",
+      "Kensington and Chelsea"
+    ],
+    "north london": [
+      "Camden",
+      "Islington",
+      "Haringey",
+      "Barnet",
+      "Enfield"
+    ],
+    "east london": [
+      "Tower Hamlets",
+      "Hackney",
+      "Newham",
+      "Waltham Forest",
+      "Redbridge"
+    ],
+    "south london": [
+      "Lambeth",
+      "Southwark",
+      "Wandsworth",
+      "Lewisham",
+      "Croydon"
+    ],
+    "west london": [
+      "Hammersmith and Fulham",
+      "Ealing",
+      "Kensington and Chelsea",
+      "Hounslow",
+      "Brent"
+    ],
+    "south east london": [
+      "Southwark",
+      "Lewisham",
+      "Greenwich",
+      "Bromley",
+      "Bexley"
+    ],
+    "south west london": [
+      "Wandsworth",
+      "Lambeth",
+      "Merton",
+      "Richmond upon Thames",
+      "Kingston upon Thames"
+    ],
+    "north west london": [
+      "Brent",
+      "Barnet",
+      "Harrow",
+      "Camden",
+      "Ealing"
+    ],
+    "north east london": [
+      "Hackney",
+      "Waltham Forest",
+      "Redbridge",
+      "Haringey",
+      "Enfield"
+    ],
+    "london": [
+      "Westminster",
+      "Camden",
+      "Tower Hamlets",
+      "Lambeth",
+      "Hackney"
+    ],
+    "sw london": [
+      "Wandsworth",
+      "Lambeth",
+      "Merton",
+      "Richmond upon Thames",
+      "Kingston upon Thames"
+    ],
+    "se london": [
+      "Southwark",
+      "Lewisham",
+      "Greenwich",
+      "Bromley",
+      "Bexley"
+    ],
+    "nw london": [
+      "Brent",
+      "Barnet",
+      "Harrow",
+      "Camden",
+      "Ealing"
+    ],
+    "ne london": [
+      "Hackney",
+      "Waltham Forest",
+      "Redbridge",
+      "Haringey",
+      "Enfield"
+    ],
+    "southwest london": [
+      "Wandsworth",
+      "Lambeth",
+      "Merton",
+      "Richmond upon Thames",
+      "Kingston upon Thames"
+    ],
+    "southeast london": [
+      "Southwark",
+      "Lewisham",
+      "Greenwich",
+      "Bromley",
+      "Bexley"
+    ],
+    "northwest london": [
+      "Brent",
+      "Barnet",
+      "Harrow",
+      "Camden",
+      "Ealing"
+    ],
+    "northeast london": [
+      "Hackney",
+      "Waltham Forest",
+      "Redbridge",
+      "Haringey",
+      "Enfield"
+    ]
+  }
+}
