@@ -34,8 +34,7 @@ RENTS = json.loads((HERE / "ons_london_rents.json").read_text(encoding="utf-8"))
 PLACES = json.loads((HERE / "london_places.json").read_text(encoding="utf-8"))
 
 PRIVACY = "Rent Check was given only these details, nothing about who you are."
-CAVEAT = ("ONS figures cover all current tenancies, not just new listings, "
-          "so newly advertised places usually cost a bit more.")
+CAVEAT = "ONS covers all current tenancies, so new listings usually cost a bit more."
 ASSUMED_ROOM = "You didn't say what kind of place, so I've assumed a room."
 COVERS = "Rent Check covers the 32 London boroughs and the City of London"
 
@@ -66,7 +65,8 @@ def pounds(amount: int) -> str:
 
 
 def last_line_is_the_privacy_line(narrative: str) -> bool:
-    return narrative.endswith(PRIVACY) and narrative.splitlines()[-1] == PRIVACY
+    """The narrative is one paragraph, and the privacy sentence ends it."""
+    return narrative.endswith(" " + PRIVACY) and "\n" not in narrative
 
 
 # ── The manifest ─────────────────────────────────────────────────────────────
@@ -80,7 +80,7 @@ def test_the_manifest_is_valid():
 def test_the_manifest_declares_the_contract():
     manifest = yaml.safe_load((HERE / "manifest.yaml").read_text(encoding="utf-8"))
     assert manifest["app"]["name"] == "Rent Check"
-    assert manifest["app"]["version"] == "0.1.0"
+    assert manifest["app"]["version"] == "0.1.1"
     assert manifest["persistence"] == "none"
     (outcome,) = manifest["outcomes"]
     assert [(i["name"], i["type"], i["required"]) for i in outcome["inputs"]] == [
@@ -592,3 +592,75 @@ def test_a_compass_short_region_gets_its_boroughs():
     assert "Wandsworth" in result.data["nearby_boroughs"]
     assert result.narrative.startswith("SW London covers several boroughs")
     assert last_line_is_the_privacy_line(result.narrative)
+
+
+# ── Every call returns a narrative ───────────────────────────────────────────
+#
+# In Pippa, the first answer to the brief's own question once came back as the
+# badge with no text, and the second worked. The app's output is identical on
+# every call, so these pin what the app controls: there is always a narrative,
+# it is one short paragraph (CLAUDE.md: "one plain sentence Pippa may use"),
+# and it ends with the privacy sentence, whatever the inputs.
+
+NARRATIVE_MAX = 500
+
+
+@pytest.mark.parametrize("inputs", EVERY_BRANCH + [
+    {"rent": "£1,100\na month", "area": "Hammer\nsmith", "property_type": "room\n\n"},
+    {"rent": "350", "area": "Southwork",
+     "property_type": "garage with a view of the river and a shed"},
+    {"rent": "£1,800", "area": "City of London", "property_type": "flat"},
+    {"rent": "lots", "area": "Kensingtn", "property_type": "flat"},
+    {"rent": "y" * 500, "area": "z" * 500, "property_type": "w" * 500},
+    {"rent": "x" * 120, "area": "Hammersmith", "property_type": "pcm " + "x" * 120},
+    {"rent": "£63", "area": "Hammersmith", "property_type": "in a Hammersmith & " + "x" * 50},
+])
+def test_every_call_returns_one_short_paragraph(inputs):
+    narrative = call(inputs).narrative
+    assert isinstance(narrative, str) and narrative.strip()
+    assert "\n" not in narrative
+    assert len(narrative) <= NARRATIVE_MAX, len(narrative)
+    assert narrative.endswith(" " + PRIVACY)
+
+
+def test_the_first_call_and_the_second_give_the_same_answer():
+    inputs = {"rent": "£1,100 a month", "area": "Hammersmith", "property_type": "room"}
+    first, second = call(inputs), call(inputs)
+    assert first.narrative == second.narrative
+    assert first.data == second.data
+
+
+# ── Hammersmith and Fulham ───────────────────────────────────────────────────
+
+def test_every_borough_in_the_place_list_is_in_the_ons_table():
+    assert set(PLACES["boroughs"]) == set(RENTS["boroughs"])
+
+
+@pytest.mark.parametrize("area", ["Hammersmith", "Fulham", "H&F", "Hammersmith and Fulham",
+                                  "hammersmith & fulham", "LBHF", "Shepherd's Bush"])
+def test_hammersmith_and_fulham_is_found_under_every_name(area):
+    data = ask(rent="£1,400 a month", area=area, property_type="studio").data
+    assert data["borough"] == "Hammersmith and Fulham"
+    assert data["typical_rent_per_month"] == RENTS["boroughs"]["Hammersmith and Fulham"]["studio"]
+    assert data["estimated"] is False
+
+
+def test_its_room_figure_is_missing_from_the_ons_data_not_from_the_lookup():
+    # ONS's last room table lists Hammersmith and Fulham (E09000013) with
+    # 0 room rents recorded, so there is no figure to look up.
+    assert RENTS["boroughs"]["Hammersmith and Fulham"]["room"] is None
+    result = ask(rent="£1,100 a month", area="Hammersmith", property_type="room")
+    assert result.data["estimated"] is True
+    assert "too few rents recorded" in result.narrative
+
+
+def test_a_trimmed_note_is_still_in_the_data():
+    # Unreadable type + weekly guess + neighbour estimate: the reply keeps the
+    # answer, the caveat and the privacy sentence; the notes stay in `data`.
+    result = ask(rent="£63", area="Hammersmith", property_type="in a Hammersmith & " + "x" * 50)
+    assert len(result.narrative) <= NARRATIVE_MAX
+    assert result.narrative.startswith("Cheap.")
+    assert CAVEAT in result.narrative
+    assert result.data["estimated"] is True
+    assert any("weekly" in note for note in result.data["assumptions"])
+    assert any("assumed a room" in note for note in result.data["assumptions"])

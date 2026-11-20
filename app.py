@@ -35,12 +35,20 @@ OUTCOME = "rent.check"
 INPUT_NAMES = ("rent", "area", "property_type")
 
 PRIVACY_LINE = "Rent Check was given only these details, nothing about who you are."
-CAVEAT = (
-    "ONS figures cover all current tenancies, not just new listings, "
-    "so newly advertised places usually cost a bit more."
-)
+CAVEAT = "ONS covers all current tenancies, so new listings usually cost a bit more."
 NO_TYPE = "You didn't say what kind of place, so I've assumed a room."
 COVERAGE = "Rent Check covers the 32 London boroughs and the City of London."
+
+#: The narrative is one short paragraph: Pippa writes her reply around it, and
+#: CLAUDE.md describes it as "one plain sentence Pippa may use". A long,
+#: multi-line narrative is the one thing about a reply this app controls, so it
+#: is kept to a few sentences with no line breaks, and the person's own words
+#: are quoted back at most this long.
+QUOTE_MAX = 40
+NARRATIVE_MAX = 500
+FALLBACK_NARRATIVE = ("Tell me the rent and the London borough, for example "
+                      "\"£1,100 a month for a room in Hackney\", and I'll check it "
+                      "against ONS figures.")
 
 #: Verdict bands on (rent - typical) / typical, in percent. The fair band
 #: reaches further above the figure than below it because ONS covers every
@@ -60,7 +68,7 @@ TYPE_LABEL = {
 }
 TYPE_PHRASE = {
     "room": "a room", "studio": "a studio", "1bed": "a 1-bed", "2bed": "a 2-bed",
-    "3bed": "a 3-bed", "4plus": "a 4+ bed", "all": "a home (all property types)",
+    "3bed": "a 3-bed", "4plus": "a 4+ bed", "all": "a home",
 }
 VERDICT_SENTENCE = {"cheap": "Cheap.", "fair": "Fair.", "high": "High.", "very high": "Very high."}
 
@@ -83,11 +91,30 @@ class App:
             raise AgentAppError(f"this app cannot do {call.outcome_id!r}")
         given = _given(call.inputs or {})
         received = [f"{name}: {value}" for name, value in given.items()]
-        data, lines = _answer(given)
+        data, sentences = _answer(given)
         data["inputs_received"] = received
-        lines.append(_details_line(given))
-        lines.append(PRIVACY_LINE)
-        return Result(data=data, narrative="\n".join(lines))
+        return Result(data=data, narrative=_narrative(sentences))
+
+
+def _narrative(sentences: list) -> str:
+    """One paragraph, never empty, at most NARRATIVE_MAX characters.
+
+    The answer comes first and the caveat and privacy sentence last, always.
+    The notes in between (an estimate, an assumption) are kept in order while
+    they fit; every one of them is also in data["assumptions"] or
+    data["estimated"], so nothing is lost when a pile-up of them is trimmed.
+    The exact inputs are in data["inputs_received"].
+    """
+    sentences = [" ".join(str(s).split()) for s in sentences if s and str(s).strip()]
+    first, rest = (sentences[0], sentences[1:]) if sentences else (FALLBACK_NARRATIVE, [])
+    tail = [s for s in rest if s == CAVEAT] + [PRIVACY_LINE]
+    room = NARRATIVE_MAX - len(" ".join([first, *tail]))
+    kept = []
+    for sentence in rest:
+        if sentence != CAVEAT and len(sentence) + 1 <= room:
+            kept.append(sentence)
+            room -= len(sentence) + 1
+    return " ".join([first, *kept, *tail])
 
 
 # ── The answer ───────────────────────────────────────────────────────────────
@@ -102,47 +129,42 @@ def _answer(given: dict) -> tuple[dict, list]:
     place = find_place(area_text)
 
     if place["kind"] == "empty":
-        return data, ["Which London borough or area is it in? Tell me, for example "
-                      "\"£1,100 a month for a room in Hackney\", and I'll check it "
-                      "against ONS figures."]
+        return data, ["Which London borough is it in? " + FALLBACK_NARRATIVE]
     if place["kind"] == "outside":
         data["nearby_boroughs"] = list(place["boroughs"])
-        return data, [f"{_title(place['name'])} is outside London, and Rent Check only has "
-                      f"ONS figures for the 32 London boroughs and the City of London. "
-                      f"The nearest London boroughs are {_and_list(place['boroughs'])}: "
-                      f"ask again with one of those and I'll check the rent."]
+        return data, [f"{_title(place['name'])} is outside London, and {COVERAGE[:-1]} "
+                      f"only. The nearest boroughs are {_and_list(place['boroughs'])}."]
     if place["kind"] == "region":
         data["nearby_boroughs"] = list(place["boroughs"])
         return data, [f"{_title(place['name'])} covers several boroughs, and ONS figures "
-                      f"are per borough. Which one is it? For example "
-                      f"{_or_list(place['boroughs'])}."]
+                      f"are per borough. Which one is it, for example "
+                      f"{_or_list(place['boroughs'])}?"]
     if place["kind"] == "unknown":
         data["nearby_boroughs"] = list(place["boroughs"])
         if place["similar"]:
             ask = f"Did you mean {_or_list(place['boroughs'])}?"
         else:
             ask = f"Which borough is it in? For example {_or_list(place['boroughs'])}."
-        return data, [f"Sorry, I don't know where \"{area_text}\" is. {COVERAGE} "
-                      f"{ask} Tell me the borough and I'll check the rent."]
+        return data, [f"Sorry, I don't know where \"{_quote(area_text)}\" is. {COVERAGE} {ask}"]
 
     # A borough, or London as a whole.
     assumptions = []
     if place["kind"] == "london":
         borough, where = "London", "London"
-        assumptions.append("You only named London, so I've compared with London as a "
-                           "whole; name a borough for a sharper answer.")
+        assumptions.append("You only named London, so this is London as a whole; name a "
+                           "borough for a sharper answer.")
     else:
         borough = place["name"]
         where = "the City of London" if borough == "City of London" else borough
         if place.get("fuzzy"):
-            assumptions.append(f"I've read \"{area_text}\" as {borough}.")
+            assumptions.append(f"I've read \"{_quote(area_text)}\" as {borough}.")
         elif place.get("via_area"):
             assumptions.append(f"{_title(place['matched'])} is in {borough}.")
 
     kind, type_note = parse_property_type(given.get("property_type", ""))
     if type_note == "no_count":
-        assumptions.append(f"You didn't say how many bedrooms, so I've compared with the "
-                           f"average for all property types in {where}.")
+        assumptions.append("You didn't say how many bedrooms, so this is the average for "
+                           "all property types.")
     elif type_note:
         assumptions.append(type_note)
 
@@ -158,18 +180,18 @@ def _answer(given: dict) -> tuple[dict, list]:
                 caveat=CAVEAT)
     estimate_line = None
     if estimated_from:
-        estimate_line = (f"ONS publishes no {TYPE_LABEL[kind]} figure for {where}, so the "
-                         f"typical rent here is the average for its neighbouring "
-                         f"boroughs: {_and_list(estimated_from)}.")
+        label = "all-properties" if kind == "all" else TYPE_LABEL[kind]
+        estimate_line = (f"ONS publishes no {label} figure for {where} (too few rents "
+                         f"recorded), so this is the average for neighbouring boroughs.")
 
     rent_text = given.get("rent", "")
     monthly, rent_note = parse_rent(rent_text)
     lines = []
     if monthly is None:
-        opener = f"I couldn't read a rent in \"{rent_text}\". " if rent_text else ""
+        opener = f"I couldn't read a rent in \"{_quote(rent_text)}\". " if rent_text else ""
         lines.append(f"{opener}The typical rent for {TYPE_PHRASE[kind]} in {where} is "
                      f"{_money(typical)} a month (ONS, {period}). Tell me the rent and "
-                     f"I'll say whether it's cheap, fair, high or very high.")
+                     f"I'll say whether it's fair.")
     else:
         if rent_note:
             assumptions.append(rent_note)
@@ -239,11 +261,10 @@ def _given(inputs: dict) -> dict:
     return given
 
 
-def _details_line(given: dict) -> str:
-    if not given:
-        return "Details given: none."
-    label = {"rent": "rent", "area": "area", "property_type": "property type"}
-    return "Details given: " + ", ".join(f"{label[k]} \"{v}\"" for k, v in given.items()) + "."
+def _quote(text: str) -> str:
+    """The person's words, on one line and not too long, for quoting back."""
+    text = " ".join(str(text).split())
+    return text if len(text) <= QUOTE_MAX else text[:QUOTE_MAX - 1].rstrip() + "…"
 
 
 # ── Rent: "£1,100 a month", "1.1k", "£1100pcm", "£250 a week", "250pw" ────────
@@ -274,17 +295,16 @@ def parse_rent(text: str) -> tuple[int | None, str]:
     note = ""
     if period == "week":
         monthly = amount * 52 / 12
-        note = f"I've converted {_money(amount)} a week to {_money(_round(monthly))} a month (× 52 ÷ 12)."
+        note = f"{_money(amount)} a week is {_money(_round(monthly))} a month."
     elif period == "year":
         monthly = amount / 12
-        note = f"I've converted {_money(amount)} a year to {_money(_round(monthly))} a month (÷ 12)."
+        note = f"{_money(amount)} a year is {_money(_round(monthly))} a month."
     elif period == "month":
         monthly = amount
     elif amount < WEEKLY_IF_UNDER:
         monthly = amount * 52 / 12
-        note = (f"You didn't say per week or per month, and {_money(amount)} is too low for a "
-                f"monthly London rent, so I've read it as {_money(amount)} a week, which is "
-                f"{_money(_round(monthly))} a month.")
+        note = (f"I've read {_money(amount)} as weekly ({_money(_round(monthly))} a month), "
+                f"as it's too low for a monthly London rent.")
     else:
         monthly = amount
     pounds = _round(monthly)
@@ -365,7 +385,7 @@ def parse_property_type(text: str) -> tuple[str, str]:
         return "room", ""
     if _WHOLE.search(t):
         return "all", "no_count"
-    return "room", f"I didn't recognise \"{text}\" as a property type, so I've assumed a room."
+    return "room", f"I didn't recognise \"{_quote(text)}\" as a property type, so I've assumed a room."
 
 
 # ── Places: boroughs, short names, neighbourhoods, typos ─────────────────────
